@@ -104,46 +104,34 @@ describe('Application logic', () => {
   describe('Vote', () => {
     it('creates a tally for the voted entry', () => {
         const state = Map({
-          vote: Map({
-            pair: List.of('Bad Timing', 'Eureka')
-          }),
-          entries: List()
+          pair: List.of('Bad Timing', 'Eureka')
         })
         const nextState = vote(state, 'Bad Timing');
 
         expect(nextState).to.equal(Map({
-          vote: Map({
-            pair: List.of('Bad Timing', 'Eureka'),
-            tally: Map({
-              'Bad Timing': 1
-            })
-          }),
-          entries: List()
+          pair: List.of('Bad Timing', 'Eureka'),
+          tally: Map({
+            'Bad Timing': 1
+          })
         }))
     });
 
     it('adds to existing tally for the voted entry', () => {
       const state = Map({
-        vote: Map({
-          pair: List.of('Bad Timing', 'Eureka'),
-          tally: Map({
-            'Bad Timing': 3,
-            'Eureka': 2
-          })
-        }),
-        entries: List()
+        pair: List.of('Bad Timing', 'Eureka'),
+        tally: Map({
+          'Bad Timing': 3,
+          'Eureka': 2
+        })
       });
       const nextState = vote(state, 'Bad Timing');
 
       expect(nextState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Bad Timing', 'Eureka'),
-          tally: Map({
-            'Bad Timing': 4,
-            'Eureka': 2
-          })
-        }),
-        entries: List()
+        pair: List.of('Bad Timing', 'Eureka'),
+        tally: Map({
+          'Bad Timing': 4,
+          'Eureka': 2
+        })
       }));
     });
   });
