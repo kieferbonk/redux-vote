@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import {List, Map} from 'immutable';
 
-describe('immutability', () => {
+describe('Immutability', () => {
   describe('A number', () => {
     function increment (currentState) {
       return currentState + 1;
